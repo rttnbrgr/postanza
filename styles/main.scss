@@ -1,0 +1,99 @@
+@import 'base.reset';
+
+// base-typography
+@import 'https://fonts.googleapis.com/css?family=Roboto+Condensed';
+
+@mixin robot-condensed {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+/*
+ *
+ * Logo Stuff
+ *
+ */
+
+svg {
+	max-width: 200px;
+	width: auto;
+	height: auto;
+	display: block;
+	position: fixed;
+	bottom: 0;
+	right: 0;	
+	z-index: 9;
+}
+
+@import 'base.reset';
+
+@import 'node_modules/bourbon/app/assets/stylesheets/bourbon';
+
+$ak-green: #B1D78A;
+$ak-blue: #00416A;
+
+$ak-blue0: #00416A;
+$ak-blue1: #46A8C6;
+$ak-blue2: #0F7BB6;
+$ak-blue3: #7FA9C8;
+
+
+
+// TWEET VIEW
+
+@mixin ak-gradient-0 {
+	@include background-image(linear-gradient($ak-green 0%, $ak-blue 100%));
+}
+
+@mixin ak-gradient-1 {
+	@include background-image(linear-gradient($ak-blue1 0%, $ak-blue2 100%));
+}
+
+@mixin ak-gradient-2 {
+	@include background-image(linear-gradient($ak-blue3 0%, $ak-blue0 100%));
+}
+
+@mixin ak-gradient-3 {
+	@include background-image(linear-gradient($ak-blue3 0%, $ak-blue1 100%));
+}
+
+@mixin ak-gradient-4 {
+	@include background-image(linear-gradient($ak-blue3 0%, $ak-green 100%));
+}
+
+.post--tweet {
+	@include size(100vh 100vw);
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	// background-color: blue; 	
+
+	@include ak-gradient-1;
+	
+
+	color: white;
+	font-size: 300%;
+
+	@include display(flex);
+	flex-direction: column;
+	padding: 0 3em 3em;
+
+
+	h1 {
+		display: block;
+		font-size: 100px;
+		text-align: center;
+		// color: $ak-blues[0];
+	}
+
+}
+
+.tweet--no {
+	display: block;
+	width: 50%;
+	font-size: 18px;
+	background-color: #fff;
+	padding: 2rem;
+	margin: 1rem auto;
+
+}

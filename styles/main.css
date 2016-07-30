@@ -1,0 +1,81 @@
+/*
+ *
+ * RESET 
+ *
+ */
+@import 'https://fonts.googleapis.com/css?family=Roboto+Condensed';
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box; }
+
+img {
+  max-width: 100%; }
+
+body {
+  background-color: pink; }
+
+/*
+ *
+ * Logo Stuff
+ *
+ */
+svg {
+  max-width: 200px;
+  width: auto;
+  height: auto;
+  display: block;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 9; }
+
+/*
+ *
+ * RESET 
+ *
+ */
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box; }
+
+img {
+  max-width: 100%; }
+
+body {
+  background-color: pink; }
+
+.post--tweet {
+  height: 100vw;
+  width: 100vh;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background-image: -webkit-linear-gradient(#46A8C6 0%, #0F7BB6 100%);
+  background-image: linear-gradient(to   , #0F7BB6 100%);
+  color: white;
+  font-size: 300%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  padding: 0 3em 3em; }
+  .post--tweet h1 {
+    display: block;
+    font-size: 100px;
+    text-align: center; }
+
+.tweet--no {
+  display: block;
+  width: 50%;
+  font-size: 18px;
+  background-color: #fff;
+  padding: 2rem;
+  margin: 1rem auto; }
