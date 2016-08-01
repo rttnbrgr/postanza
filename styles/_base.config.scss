@@ -1,0 +1,83 @@
+//
+// Sizes && BreakPoints
+//
+$bp-desktop: 62.5rem; // 1000px
+$bp-display: 125rem; 	// 2000px
+
+@mixin bp-desktop {
+	@media (min-width: $bp-desktop) { @content; }
+}
+@mixin bp-display {
+	@media (min-width: $bp-display) { @content; }
+}
+
+
+//
+// Typography
+//
+@import 'https://fonts.googleapis.com/css?family=Roboto+Condensed';
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+
+// figure this out
+// @import 'https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i';
+@import 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i';
+
+@mixin robot-condensed {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+$roboto-cond: 'Roboto Condensed', sans-serif;
+$roboto: 'Roboto', sans-serif;
+$sans: 'Roboto Condensed', sans-serif;
+
+body {
+	font-family: $sans;
+	font-weight: 400;
+}
+
+//
+// Colors
+//
+$ak-green: #B1D78A;
+$ak-blue: #00416A;
+
+$ak-blue0: #00416A;
+$ak-blue1: #46A8C6;
+$ak-blue2: #0F7BB6;
+$ak-blue3: #7FA9C8;
+
+
+// Gradients you can use
+
+@mixin ak-gradient-0 {
+	@include background-image(linear-gradient($ak-green 0%, $ak-blue 100%));
+}
+
+@mixin ak-gradient-1 {
+	@include background-image(linear-gradient($ak-blue1 0%, $ak-blue2 100%));
+}
+
+@mixin ak-gradient-2 {
+	@include background-image(linear-gradient($ak-blue3 0%, $ak-blue0 100%));
+}
+
+@mixin ak-gradient-3 {
+	@include background-image(linear-gradient($ak-blue3 0%, $ak-blue1 100%));
+}
+
+@mixin ak-gradient-4 {
+	@include background-image(linear-gradient($ak-blue3 0%, $ak-green 100%));
+}
+
+// for $i from 1  through 4 {
+// 	.ak-gradient-#{$i} {
+// 		@include ak-gradient-#{$i};
+// 	}
+// }
+
+.ak-gradient-0 { @include ak-gradient-0; }
+.ak-gradient-1 { @include ak-gradient-1; }
+.ak-gradient-2 { @include ak-gradient-2; }
+.ak-gradient-3 { @include ak-gradient-3; }
+.ak-gradient-4 { @include ak-gradient-4; }

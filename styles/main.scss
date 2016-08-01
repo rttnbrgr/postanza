@@ -1,99 +1,97 @@
-@import 'base.reset';
-
-// base-typography
-@import 'https://fonts.googleapis.com/css?family=Roboto+Condensed';
-
-@mixin robot-condensed {
-	font-family: 'Roboto Condensed', sans-serif;
-}
-
-
-/*
- *
- * Logo Stuff
- *
- */
-
-svg {
-	max-width: 200px;
-	width: auto;
-	height: auto;
-	display: block;
-	position: fixed;
-	bottom: 0;
-	right: 0;	
-	z-index: 9;
-}
-
-@import 'base.reset';
-
+// Tools
 @import 'node_modules/bourbon/app/assets/stylesheets/bourbon';
 
-$ak-green: #B1D78A;
-$ak-blue: #00416A;
+// Base
+@import 'base.reset';
+@import 'base.config';
+@import 'base.mixins';
 
-$ak-blue0: #00416A;
-$ak-blue1: #46A8C6;
-$ak-blue2: #0F7BB6;
-$ak-blue3: #7FA9C8;
+// Modules
+@import 'module.tweet';
+@import 'module.footer';
+@import 'module.shame';
 
 
-
-// TWEET VIEW
-
-@mixin ak-gradient-0 {
-	@include background-image(linear-gradient($ak-green 0%, $ak-blue 100%));
-}
-
-@mixin ak-gradient-1 {
-	@include background-image(linear-gradient($ak-blue1 0%, $ak-blue2 100%));
-}
-
-@mixin ak-gradient-2 {
-	@include background-image(linear-gradient($ak-blue3 0%, $ak-blue0 100%));
-}
-
-@mixin ak-gradient-3 {
-	@include background-image(linear-gradient($ak-blue3 0%, $ak-blue1 100%));
-}
-
-@mixin ak-gradient-4 {
-	@include background-image(linear-gradient($ak-blue3 0%, $ak-green 100%));
-}
-
-.post--tweet {
-	@include size(100vh 100vw);
-	height: 100vh;
-	width: 100vw;
-	position: absolute;
-	// background-color: blue; 	
-
-	@include ak-gradient-1;
+// top level
+.view {
+	@include size(100vw 100vh);
+	display: flex;
 	
+	// for the tweet
+	&--tweet {}
+	
+	// for the grid
+	&--grid {
+		align-items: center;
+		justify-content: center;
+	}
+	
+	// @include ak-gradient-4;
+	background-color: pink;
+}
 
-	color: white;
-	font-size: 300%;
-
-	@include display(flex);
+.block {
+	
+	// this wraps all the grid blocks
+	&__wrapper {
+		display: flex;
+	}
+	
+	// the blocks themselves
+	flex: 1 1 33.33333%;
+	display: flex;
 	flex-direction: column;
-	padding: 0 3em 3em;
 
+	&:nth-child(even) {
+		color: blue;
+		flex-direction: column-reverse;
+	}
 
-	h1 {
-		display: block;
-		font-size: 100px;
-		text-align: center;
-		// color: $ak-blues[0];
+	&--info {
+		flex-grow: 1.1;
 	}
 
 }
 
-.tweet--no {
-	display: block;
-	width: 50%;
-	font-size: 18px;
-	background-color: #fff;
-	padding: 2rem;
-	margin: 1rem auto;
+
+
+
+@import 'module.block.photo';
+
+
+$block-avi-size: 3em;
+$block-arrow-size: $block-avi-size/2;
+$arrow-size: 1em;
+
+.info {
+	background-color: white;
+	// background-color: $ak-blue1;
+	padding: 0.5rem 10%;
+
+	&::before {
+		@include arrow-up($size: $block-arrow-size, $color: white);
+
+		@include position(absolute, 0 null null 10%);
+		@include transform(translateY(-100%));
+	}
+	
+	&__userblock {
+		display: flex;
+		align-items: center;
+	}
+
+	&__avi {
+		@include size(3em);
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	&__username {
+		font-size: 1.5em;
+		color: $ak-green;
+		font-weight: 700;
+		font-family: $roboto-cond;
+		margin-left: 0.3em;
+	}
 
 }

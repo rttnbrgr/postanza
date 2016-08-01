@@ -1,0 +1,55 @@
+/*
+ *
+ * Alaska Footer & Logo
+ *
+ */
+
+footer {
+	@include position(fixed, null 0 0 0);
+	padding: 0.5em;
+	display: flex;
+	align-items: center;
+
+	// typography
+	color: white;
+	font-size: 150%;
+
+	// debug
+	// background-color: $ak-green;		
+	
+	// make it bigger for big screens
+	@include bp-desktop { font-size: 200%; }
+	@include bp-display { font-size: 300%; }
+}
+
+// flex: grow shrink basis;
+
+.footer {
+	
+	&__tagline {
+		flex: 5 1 50vw;
+		text-align: right;
+		padding-right: 0.5em;
+		
+		@include bp-desktop { padding-right: 1em; }
+	}
+
+	&__logo {
+		flex: 0 1 15vh;		
+		// min-width: 100px;
+		// max-height: 10vh;		
+	}
+}
+
+// old logo svg styles
+
+// svg {
+// 	max-width: 200px;
+// 	width: auto;
+// 	height: auto;
+// 	display: block;
+// 	position: fixed;
+// 	bottom: 0;
+// 	right: 0;	
+// 	z-index: 9;
+// }

@@ -1,172 +1,136 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+var PropTypes = React.PropTypes;
 // import App from './App';
 import data from './data-pretty';
 
-function getPhotos(dataSet) {
-	
-	var thePhotos = [];
+// import our components
+import AlaskaFooter from './scripts/components/AlaskaFooter';
+import TweetView from './scripts/containers/TweetView';
+import Tweet from './scripts/components/Tweet';
+import { isTweetFilter } from './scripts/utility-functions';
+// don't need these
+import GridView from './scripts/components/GridView';
+import TweetList from './scripts/components/TweetList';
 
-	console.log(dataSet.length);	
-	
-	for(var i=0; i < dataSet.length; i++) {
-		if ( dataSet[i].images.length !== 0 ){
-			// console.log( dataSet[i].images[0].url );
-			thePhotos.push(dataSet[i].images[0].url);
-		}
-	}
 
-	console.log( thePhotos );
-}
+
+
+// utility functions
+import { getPhotos, countThePostTypes, tweetsWithPhotos } from './scripts/utility-functions';
 // getPhotos(data);
-
-
-function countThePostTypes() {
-	var photos = 0;
-	var vines = 0;
-	var tweets = 0;
-	var postType = '';
-
-	for(var i=0; i < data.length; i++) {
-		postType = data[i].source_type;
-		if(postType === 'instagram') {
-			photos += 1;
-		} else if (postType === 'vine') {
-			vines += 1;
-		} else if (postType === 'twitter') {
-			tweets += 1;
-		}
-	}
-
-	console.log('ig-photos = ' + photos);
-	console.log('vines = ' + vines);
-	console.log('tweets = ' + tweets);
-} 
-// countThePostTypes();
-
-function tweetsWithPhotos() {
-	var tweetsWithPic = 0;
-	
-	for(var i=0; i < data.length; i++) {
-		data[i].source_type === 'twitter' && data[i].images.length !==0 ? tweetsWithPic++ : console.log('no');
-	}
-
-	console.log('tweets with photos = ' + tweetsWithPic);
-}
-// tweetsWithPhotos();
-
-
-
-
-// test the tweet string
-var testTweet = data[0].text;
-console.log(testTweet);
-// var PostTweet = React.createClass({
-// 	render: function() {
-
-// 	}
-// })
-
-
-// twitter test
-function isTweet(obj) {
-	// obj.source_type === 'instagram' ? true : false;
-	
-	if( obj.source_type === "twitter" ) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-var tweetsObject = data.filter(isTweet);
-console.log('tweets objects array', tweetsObject);
-
-var TweetHolder = React.createClass({
-	// tweetsArray: props.data.filter(isTweet),
-	// getIn	
-	render: function(){
-		console.log(this.props.tweetsArray);
-		return (
-			<div>
-				{
-					this.props.tweetsArray.map( (tweetObject) => <NotTweet key={tweetObject.post_id} text={tweetObject.text} /> ) 
-					// console.log(this.props.data)
-					// var testArray = this.props.data.filter(isTweet)
-					// console.log('inside react' + tweetsObject)
-					// tweetsObject.map( (obj) => <NotTweet title="newtitle" /> )	
-				}
-
-			</div>
-		)
-	}
-})
-
-var NotTweet = React.createClass({
-	rawMarkup: function() {
-    return { __html: this.props.text };
-  },
-	render: function() {
-		return (
-			<div className="tweet--no">
-				<p dangerouslySetInnerHTML={ this.rawMarkup() } ></p>
-			</div>
-		)
-	}
-})
+// countThePostTypes(data);
+// tweetsWithPhotos(data);
 
 // a sample tweet from the first object
-var Tweet = React.createClass({
+var Tweettttttt = React.createClass({
+	testTweet: data[5],	
+
+	// propTypes: {
+	// 	speed: PropTypes.number
+	// }
+
+
+	getInitialState: console.log('getInitialState'),
+	
+	getDefaultProps: function() {
+		console.log('getDefaultProps');
+		return {
+			speed: 1000
+		}
+	},
+	
+	componentWillMount: console.log('componentWillMount'),
+	
+	componentDidMount: function() {
+		console.log('componentDidMount');
+		// this.interval = setInterval(function() {
+		// 	if(true) {
+		// 		console.log('tic...')
+		// 	} 
+		// }.bind(this), 500);
+
+	},
+
 	render: function() {
 		return (
-			<div className="post post--tweet">
-				<h1>#iFlyAlaska</h1>
-				<p className="tweet__text">{data[0].text}</p>
-				<span className="tweet__hashtags">#iflyalaska #mtrainer #pacnw #seattle</span>				
-				<h2 className="tweet__username">@{data[0].user.screen_name}</h2>
+			<div className="post post--tweet tweet__view">
+				<div className="tweet__wrap">
+					
+					<div className="tweet__user-wrap">
+						<figure className="tweet__avi-wrap">
+							<img src={this.testTweet.user.icon} alt="{this.testTweet.user.full_name}" className="tweet__avi"/>
+						</figure>
+						<h2 className="tweet__username">{'@' + data[0].user.screen_name}</h2>
+					</div>
+
+					<p className="tweet__text">{data[0].text}</p>
+					<span className="tweet__hashtags">#iflyalaska #mtrainer #pacnw #seattle</span>				
+					
+				</div>
 			</div>
 		)
 	}
 })
 
-
-
-
-
-
-
-
-var thing = data[1].images[0].url;
+var state = {
+	currentTweet: 0,
+	postano: data,
+}
 
 var App = React.createClass({
+	// some style testing
+	colors: {
+		average: data[1].images[0].average_color,
+		main: data[1].images[0].dominant_color
+	},
+
+	state: state,
+
+	thing: data[2].images[0].url,
+
+	componentDidMount: function(){
+		console.log('componentDidMount');
+		var isTweet = function(obj){
+			if( obj.source_type === "twitter" ) {
+				return true;
+			} else {
+				return false;
+			}
+		};
+	},
+
+	// this filters the tweets
+	isTweetFilter: isTweetFilter,
+
+	// test tweet keys
+	testTweet: data[7],
+	testTags: '#iflyalaska #mtrainer #pacnw #seattle #kray',
+
 	render: function() {
-		var theColors = {
-			average: data[1].images[0].average_color,
-			main: data[1].images[0].dominant_color
+		
+		var style = {
+			borderRight: '10px solid ' + this.colors.main,
+			borderBottom: '10px solid ' + this.colors.average
 		};
-		var black = 'black';
-		var styleTest = {			
-			borderRight: '10px solid ' + theColors.main,
-			borderBottom: '10px solid ' + theColors.average
-		};
+		
 		return (
 			<div className="app-wrapper">
-				<p>hello 3</p>
-				<img src={thing} alt="" style={styleTest} />
-				<span>{testTweet}</span>
-				<Tweet />
-				<TweetHolder tweetsArray={ this.props.data.filter(isTweet) }  data={this.props.data}/>				
+				<TweetView tweetsArray={ this.props.data.filter(this.isTweetFilter) } state={this.props.state} />
 				
+				<Tweet user={this.testTweet.user} tweet={this.testTweet.text} tags={this.testTags} />
+
+				<TweetList tweetsArray={ this.props.data.filter(this.isTweetFilter) }  data={this.props.data}/>
+				<GridView />
+				<AlaskaFooter />
+
 			</div>
 		)
 	}
 })
-
-
-
 
 
 ReactDOM.render(
-	<App data={data}/>, 
+	<App data={data} state={state}/>, 
 	document.getElementById('app')
 );
