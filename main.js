@@ -4,6 +4,9 @@ var PropTypes = React.PropTypes;
 // import App from './App';
 import data from './data-pretty';
 
+
+// import router
+
 // import our components
 import AlaskaFooter from './scripts/components/AlaskaFooter';
 import TweetView from './scripts/containers/TweetView';
@@ -12,9 +15,6 @@ import { isTweetFilter } from './scripts/utility-functions';
 // don't need these
 import GridView from './scripts/components/GridView';
 import TweetList from './scripts/components/TweetList';
-
-
-
 
 // utility functions
 import { getPhotos, countThePostTypes, tweetsWithPhotos } from './scripts/utility-functions';
@@ -78,6 +78,7 @@ var state = {
 	postano: data,
 }
 
+
 var App = React.createClass({
 	// some style testing
 	colors: {
@@ -85,7 +86,7 @@ var App = React.createClass({
 		main: data[1].images[0].dominant_color
 	},
 
-	state: state,
+	
 
 	thing: data[2].images[0].url,
 
@@ -116,7 +117,7 @@ var App = React.createClass({
 		
 		return (
 			<div className="app-wrapper">
-				<TweetView tweetsArray={ this.props.data.filter(this.isTweetFilter) } state={this.props.state} />
+				<TweetView tweetsArray={ this.props.data.filter(this.isTweetFilter) } />
 				
 				<div className="post post--tweet tweet__view">
 					<Tweet user={this.testTweet.user} tweet={this.testTweet.text} tags={this.testTags} />
