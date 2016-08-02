@@ -186,6 +186,18 @@ footer {
   width: 100vw;
   display: flex;
   background-color: pink; }
+  .view--tweet {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 3em 3em;
+    border: 1px solid red;
+    background-image: -webkit-linear-gradient(#46A8C6 0%, #0F7BB6 100%);
+    background-image: linear-gradient(to   , #0F7BB6 100%);
+    color: white;
+    font-size: 150%; }
   .view--grid {
     align-items: center;
     justify-content: center; }

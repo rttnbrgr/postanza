@@ -118,7 +118,9 @@ var App = React.createClass({
 			<div className="app-wrapper">
 				<TweetView tweetsArray={ this.props.data.filter(this.isTweetFilter) } state={this.props.state} />
 				
-				<Tweet user={this.testTweet.user} tweet={this.testTweet.text} tags={this.testTags} />
+				<div className="post post--tweet tweet__view">
+					<Tweet user={this.testTweet.user} tweet={this.testTweet.text} tags={this.testTags} />
+				</div>
 
 				<TweetList tweetsArray={ this.props.data.filter(this.isTweetFilter) }  data={this.props.data}/>
 				<GridView />
