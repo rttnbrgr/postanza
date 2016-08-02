@@ -1,0 +1,68 @@
+/*
+ *
+ * Home View
+ *
+ */
+
+$header-width: 40rem;
+
+.home {
+	&__view {
+		// @include ak-gradient-2;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		z-index: 2;		
+		font-size: 100%;
+
+		color: $ak-blue2;
+		background-color: #fff;
+	}
+
+	&__header {
+		svg {
+			width: 80vw;
+			max-width: $header-width;
+		}
+	}
+
+	&__headline {
+		font-family: $roboto;
+		font-weight: 300;
+		line-height: 1.4;
+		text-align: center;
+		font-size: 4em;
+		margin: 0.5em 0 1.5em;
+	}
+
+	&__btn {
+		display: block;
+		// width: 100%;
+		
+		font-size: 2em;
+		text-align: center;
+		background-color: transparent;
+
+		border: 4px solid $ak-green;
+		color: $ak-green;
+		line-height: 1;
+		padding: 1em;
+
+		font-family: $roboto-cond;
+		text-transform: uppercase;
+		font-weight: 500;
+		border-radius: 10px;
+		margin-top: 1em;		
+
+		width: 80vw;
+		max-width: $header-width;
+
+		transition: all .5s ease;
+
+		&:hover {
+			background-color: $ak-green;
+			color: white;
+		}
+	}
+}

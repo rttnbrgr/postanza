@@ -8,6 +8,7 @@ import Tweet from './Tweet';
 import TweetList from './TweetList';
 import GridView from './GridView';
 import AlaskaFooter from './AlaskaFooter';
+import Home from './Home';
 
 var App = React.createClass({
 	
@@ -35,6 +36,9 @@ var App = React.createClass({
 
 		return (
 			<div className="app-wrapper">
+
+				<Home />
+
 				<TweetView tweetsArray={ this.props.data.filter(this.isTweetFilter) } />
 				
 				<div className="post post--tweet tweet__view">

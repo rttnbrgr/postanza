@@ -1,0 +1,68 @@
+.grid__view {
+	@include ak-gradient-0;	
+}
+
+
+
+.block {
+	
+	// this wraps all the grid blocks
+	&__wrapper {
+		display: flex;
+
+	}
+	
+	// the blocks themselves
+	flex: 1 1 33.33333%;
+	display: flex;
+	flex-direction: column;
+
+	&:nth-child(even) {
+		color: blue;
+		flex-direction: column-reverse;
+	}
+
+	&--info {
+		flex-grow: 1.1;
+	}
+
+}
+
+$block-avi-size: 3em;
+$block-arrow-size: $block-avi-size/2;
+$arrow-size: 1em;
+
+.info {
+	background-color: white;
+	// background-color: $ak-blue1;
+	padding: 0.5rem 10%;
+
+	&::before {
+		@include arrow-up($size: $block-arrow-size, $color: white);
+
+		@include position(absolute, 0 null null 10%);
+		@include transform(translateY(-100%));
+	}
+	
+	&__userblock {
+		display: flex;
+		align-items: center;
+	}
+
+	&__avi {
+		@include size(3em);
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	&__username {
+		font-size: 1.5em;
+		color: $ak-green;
+		font-weight: 700;
+		font-family: $roboto-cond;
+		margin-left: 0.3em;
+	}
+}
+
+
+@import 'module.block.photo';

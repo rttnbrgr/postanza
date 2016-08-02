@@ -1,0 +1,27 @@
+/*
+ *
+ * State
+ *
+ */
+
+ 
+.tweet__wrap {
+	opacity: 1;
+	transition: 
+		opacity .3s ease,
+		transform 1s ease-in;		
+	transform: translateX(0);
+}
+
+// state
+.isActive {
+	transition: all 1s linear;
+	opacity: 1;
+}
+
+.isLeaving {
+	// transition: all 1s linear
+	opacity: 0;
+	transform: translateX(100%);
+	
+}
