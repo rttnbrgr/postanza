@@ -1,5 +1,5 @@
 import React from 'react';
-import data from '../../data-pretty';
+import data from '../data/data-pretty';
 
 var Block = React.createClass({
 	render: function() {
