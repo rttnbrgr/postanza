@@ -1,8 +1,6 @@
 import React from 'react';
+import ReactRouter, { Link } from 'react-router'
 import AlaskaLogo from './AlaskaLogo';
-
-var ReactRouter = require('react-router');
-var Link = ReactRouter.Link;
 
 var Home = React.createClass({
 	render: function() {
@@ -16,8 +14,7 @@ var Home = React.createClass({
 				
 				<div className="home__actions">
 					<Link to="/tweetview" className="home__btn">Tweet View</Link>
-					<Link to="/gridview" className="home__btn">Grid View</Link>				
-					
+					<Link to="/gridview" className="home__btn">Grid View</Link>
 					<Link to="/singletweet" className="home__btn">Single Tweet</Link>				
 				</div>
 			</div>
