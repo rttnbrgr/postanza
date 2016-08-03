@@ -26,11 +26,18 @@ var Tweet = React.createClass({
 	
 	componentDidMount: function() {
 		console.log('tweet - componentDidMount');
+		var counter = 0;
+		var tweetArrayLength = 11;
+		//
 		// this.interval = setInterval(function() {
-		// 	if(true) {
-		// 		console.log('tic...')
-		// 	} 
-		// }.bind(this), 500);
+		// 	if(counter < tweetArrayLength) {
+		// 		console.log('tweet ' + counter);
+		// 		counter++;
+		// 	} else {
+		// 		console.log('tweet ' + counter);
+		// 		counter = 0;
+		// 	}
+		// }.bind(this), 1000);
 	},
 
 	changeTweet: function() {

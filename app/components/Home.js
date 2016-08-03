@@ -15,8 +15,10 @@ var Home = React.createClass({
 				</div>
 				
 				<div className="home__actions">
-					<Link to="/tweetView" className="home__btn">Tweet View</Link>
-					<Link to="/gridView" className="home__btn">Grid View</Link>				
+					<Link to="/tweetview" className="home__btn">Tweet View</Link>
+					<Link to="/gridview" className="home__btn">Grid View</Link>				
+					
+					<Link to="/singletweet" className="home__btn">Single Tweet</Link>				
 				</div>
 			</div>
 		)

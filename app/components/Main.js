@@ -1,14 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import data from '../data/data-pretty';
-import App from './App';
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
-var state = {
-	currentTweet: 0,
-	postano: data,
-}
+var NewMain = React.createClass({
+	render: function() {
+		return (
+			// <div className="app-wrapper">
+				<ReactCSSTransitionGroup
+					transitionName="appear"
+					transitionEnterTimeout={500}
+					transitionLeaveTimeout={500}>
+					{React.cloneElement(this.props.children, {key: this.props.location.pathname})}					
+				</ReactCSSTransitionGroup>
+			// </div>
+		)
+	}
+})
 
-ReactDOM.render(
-	<App data={data} state={state}/>, 
-	document.getElementById('app')
-);
+export default NewMain;
