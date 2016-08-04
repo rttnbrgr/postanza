@@ -2,7 +2,7 @@
 http://jsbeautifier.org/
 https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
 https://css-tricks.com/snippets/css/css-triangle/
-http://jsmodules.io/
+[jsModules](http://jsmodules.io/)
 
 ## slideshow
 [react slideshow](http://codepen.io/SitePoint/pen/ZQWmoj/?editors=0010)
@@ -15,3 +15,6 @@ https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval
 ## general react
 https://www.youtube.com/watch?v=DgVS-zXgMTk
 https://scotch.io/tutorials/learning-react-getting-started-and-concepts
+
+## html to string
+http://stackoverflow.com/questions/822452/strip-html-from-text-javascript
