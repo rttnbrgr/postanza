@@ -5,33 +5,39 @@
  */
 
  
-.tweet__wrap {
-	opacity: 1;
-	transition: 
-		opacity .3s ease,
-		transform 1s ease-in;		
-	transform: translateX(0);
-}
-
-// state
-.isActive {
-	transition: all 1s linear;
-	opacity: 1;
-}
-
-.isLeaving {
-	// transition: all 1s linear
-	opacity: 0;
-	transform: translateX(100%);
-	
-}
+$tweet-height: 40vh;
 
 .tweet__wrap {
-	
-	// hide the tweets
-	&.inactive {
-		opacity: 0.5;
-		position: absolute;		
-		transform: translate3d(100vw, 0, 0);
+	opacity: 1;
+	height: 35vh;
+
+	&.last {
+		order: 0;
+		height: 0;
+		transform: translate3d(0, -$tweet-height/4, 0);
+		opacity: 0;
+		// dont transition the height!!
+		transition: 
+			transform 1s linear,
+			opacity 0.2s ease-out;
 	}
+
+	&.active {
+		order: 1;
+		height: $tweet-height;
+		transform: translate3d(0,0,0);
+		transition: 
+			transform 0.8s cubic-bezier(.34,1.52,.64,.85),
+			opacity 1s cubic-bezier(.68,-0.1,.5,1)
+		;
+	}
+
+	&.next {
+		order: 2;
+		transform: translate3d(0,20vh,0);
+  	height: 0;
+  	opacity: 0;
+  }
+
+  &.hidden { display: none; }
 }

@@ -17,9 +17,7 @@
 // State
 @import 'state.tweet';
 
-.tweet__wrap {
-	&.hidden { display: none; }
-}
+
 @import 'state.transitions';
 
 .view {
@@ -52,3 +50,19 @@
 }
 
 .test { opacity: 2; }
+
+
+
+/* Testing autoprefixer */
+.autoprefixer {
+  display: flex;
+}
+ 
+/* Testing cssnext */
+.cssnext {
+  background: color(red alpha(-10%));
+}
+
+:root {
+  --ak-green: #B1D78A;
+}
