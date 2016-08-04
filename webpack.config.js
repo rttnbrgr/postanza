@@ -8,7 +8,6 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 module.exports = {
 	entry: './app/index.js',
 	output: {
-		publicpath: __dirname + '/dist',
 		path: __dirname + '/dist',
     filename: "index_bundle.js"
 		// old
