@@ -1,7 +1,7 @@
 import React from 'react';
 import Tweet from '../components/Tweet';
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
-
+import AlaskaFooter from '../components/AlaskaFooter';
 
 
 // can eye pass this in via props from router?
@@ -23,8 +23,6 @@ var positiveTweets = tweetsArray.filter(tweetIsNotNegative);
 var noAviTweets = positiveTweets.splice(3, 2);
 
 
-
-
 var TweetView = React.createClass({
 	state: {
 		currentTweet: 0,
@@ -33,40 +31,25 @@ var TweetView = React.createClass({
 		counter: 0
 	},
 	
-
 	getInitialState: function() {
-
-		console.log('tweet - getInitialState');
 		return {
 			currentTweet: 0,
 			lastTweet: -1,
 			nextTweet: 1,
-			counter: 0
+			counter: 0,
+			bgColor: this.setBackground(),
+			interval: 5000
 		}
-	},	
-
-	increaseTweet: function(){
-		this.setState({
-			lastTweet: this.state.currentTweet,
-			currentTweet: this.state.currentTweet + 1,
-			nextTweet: this.state.currentTweet + 2,
-			counter: this.state.counter + 1
-		});
 	},
 
-	resetTweet: function() {
-		this.setState({
-			lastTweet: this.state.currentTweet,
-			currentTweet: this.state.currentTweet + 1,
-			nextTweet: 0,
-			counter: -1
-		})
-	},
+	componentDidMount: function() {
+		this.interval = setInterval(function() {
+			this.changeTweet();			
+		}.bind(this), this.state.interval);
+	},		
 
 	changeTweet: function() {
-		// var counter = this.state.counter;
-		// console.log(counter);
-		// (this.state.counter < (this.tweetsArray.length - 2)) ? this.increaseTweet() : this.resetTweet();
+		
 		var lengthCheck = this.tweetsArray.length - 1;
 
 		this.setState({
@@ -80,9 +63,10 @@ var TweetView = React.createClass({
 
 	setBackground: function() {
 		var bgLength = 5;
-		console.log('bg');
+		var randomBG = (Math.floor(Math.random() * bgLength));
+		var bgClass = 'ak-gradient-' + randomBG;
+		return bgClass		
 	},
-
 
 	// set the array of tweets to only useful dataset
 	tweetsArray: positiveTweets,
@@ -99,9 +83,8 @@ var TweetView = React.createClass({
 		// 	);
 		// });
 
-
 		return (
-			<div className="view view--tweets old-classes post post--tweet tweet__view" onClick={this.changeTweet}>
+			<div className={"view tweet__view " + this.state.bgColor} onClick={this.changeTweet}>
 				
 				{
 					this.tweetsArray.map( function(tweetNode, index) {
@@ -118,6 +101,8 @@ var TweetView = React.createClass({
 						)
 					}, this)
 				}
+
+				<AlaskaFooter />
 				
 			</div>
 		)
