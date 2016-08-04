@@ -1,0 +1,54 @@
+// Tools
+@import 'node_modules/bourbon/app/assets/stylesheets/bourbon';
+
+// Base
+@import 'base.reset';
+@import 'base.config';
+@import 'base.mixins';
+
+// Modules
+@import 'module.tweet';
+@import 'module.footer';
+@import 'module.shame';
+@import 'module.view';
+@import 'module.block';
+@import 'module.home';
+
+// State
+@import 'state.tweet';
+
+.tweet__wrap {
+	&.hidden { display: none; }
+}
+@import 'state.transitions';
+
+.view {
+	@include position(absolute, 0);
+}
+
+
+.appear-enter {
+  // transition-duration: .7s;
+  // transition-property: opacity;
+  // transition-timing-function: ease-out;
+  opacity: 0;
+  background-color: coral!important;
+  transition: all 1s ease;
+}
+
+.appear-enter.appear-enter-active {
+  opacity: 1;
+  background-color: purple!important;
+}
+
+.appear-leave {
+  opacity: 0;
+  background-color: yellow;
+  transition: all .5s ease;
+}
+
+.appear-leave.appear-leave-active {
+	opacity: .5,
+}
+
+.test { opacity: 2; }

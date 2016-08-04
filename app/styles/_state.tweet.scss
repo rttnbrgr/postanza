@@ -25,3 +25,13 @@
 	transform: translateX(100%);
 	
 }
+
+.tweet__wrap {
+	
+	// hide the tweets
+	&.inactive {
+		opacity: 0.5;
+		position: absolute;		
+		transform: translate3d(100vw, 0, 0);
+	}
+}

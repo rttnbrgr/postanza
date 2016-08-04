@@ -17,7 +17,8 @@
 		
 		border: 1px solid red;
 		
-		@include ak-gradient-1;
+		// @include ak-gradient-1;
+		background-color: blue;
 		// text & display stuff
 		color: white;
 		font-size: 150%;

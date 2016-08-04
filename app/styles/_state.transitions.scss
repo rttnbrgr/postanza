@@ -1,0 +1,52 @@
+/*
+ *
+ * Page Slide Transitions
+ * enter --> enter-active --> off
+ *
+ */
+
+$pageSlide-speed: 600ms;
+$pageSlide-transition: all $pageSlide-speed ease;
+
+// PAGE SLIDE
+.pageSlide-leave {
+  transform: translate3d(0, 0, 0);
+  
+  &.pageSlide-leave-active {
+  	transform: translate3d(-100%, 0, 0);
+    transition: $pageSlide-transition;
+  }  
+}
+
+.pageSlide-enter {
+  // opacity is ruining the grid page
+  // opacity: 0;
+  transform: translate3d(100%, 0, 0);  
+  
+  &.pageSlide-enter-active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: $pageSlide-transition;
+  }
+}
+
+// PAGE SLIDE REVERSE
+.reversePageSlide-leave {
+  transform: translate3d(0%, 0, 0);
+
+  &.reversePageSlide-leave-active {
+    transform: translate3d(100%, 0, 0);
+    transition: all ease-out $pageSlide-speed;
+    transition: $pageSlide-transition;
+  }
+}
+
+.reversePageSlide-enter {
+  transform: translate3d(-100%, 0, 0);
+
+  &.reversePageSlide-enter-active {
+    transform: translate3d(0, 0, 0);
+    transition: all ease $pageSlide-speed;
+    transition: $pageSlide-transition;
+  }
+}
