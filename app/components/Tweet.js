@@ -4,7 +4,6 @@ import TweetUser from './TweetUser';
 import TweetBody from './TweetBody';
 import TweetTags from './TweetTags';
 
-
 var Tweet = React.createClass({
 
 	getInitialState: function() {
@@ -16,16 +15,16 @@ var Tweet = React.createClass({
 	},
 	
 	getDefaultProps: function() {
-		console.log('tweet - getDefaultProps');
+		// console.log('tweet - getDefaultProps');
 		return {
 			speed: 1000
 		}
 	},
 	
-	componentWillMount: console.log('tweet - componentWillMount'),
-	
+	// componentWillMount: console.log('tweet - componentWillMount'),	
+
 	componentDidMount: function() {
-		console.log('tweet - componentDidMount');
+		// console.log('tweet - componentDidMount');
 		var counter = 0;
 		var tweetArrayLength = 11;
 		//
@@ -40,23 +39,50 @@ var Tweet = React.createClass({
 		// }.bind(this), 1000);
 	},
 
+	objList: 5,
+
+	componentWillUpdate: function() {
+		// console.log('cwu');
+		// console.log(this.objList);
+		// console.log(this.state);
+	},
+
 	changeTweet: function() {
 		console.log('changeTweet', this.state.currentTweet)
 
 		this.setState({
 			currentTweet: this.state.currentTweet + 1
 		})
+	},	
+
+	// normalize the text
+	tweetToString: function(string) {
+		var regexp = new RegExp(/<(?:.|\n)*?>/gm);
+		var convertedHTML = string.replace(regexp, '');
+		return convertedHTML
 	},
 
-	// click event test
-	testClick: () => { console.log('test click' )},
+	// get the hashtags
+	stripHashtags: function(string) {
+		var regexp = new RegExp('#([^\\s]*)','g');
+		var hashtagsArray = string.match(regexp);
+		var hashtagsString = hashtagsArray.join(' ');
+		return hashtagsString
+	},
 
 	render: function() {
+		{
+			var tweetString = this.tweetToString(this.props.tweet);
+			var tweetHashtags = this.stripHashtags(tweetString);			
+		}
 		return (
-			<div className={(this.props.active ? 'active' : 'inactive') + " tweet__wrap"} onClick={this.changeTweet} >
+			<div className={
+					(this.props.active ? 'active' : (this.props.next ? 'next' : (this.props.last ? 'last' : 'hidden')))  + " tweet__wrap"
+				} 
+				onClick={this.changeTweet} >
 				<TweetUser user={this.props.user} />
-				<TweetBody tweet={this.props.tweet} />
-				<TweetTags tags={this.props.tags} />				
+				<TweetBody tweet={tweetString} />
+				<TweetTags tags={tweetHashtags} />				
 			</div>			
 		)
 	}

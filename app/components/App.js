@@ -2,7 +2,7 @@ import React from 'react';
 import data from '../data/data-pretty';
 
 // import our components
-import { isTweetFilter } from '../utility-functions';
+import { isTweetFilter } from '../util/functions';
 import TweetView from '../containers/TweetView';
 import Tweet from './Tweet';
 import TweetList from './TweetList';
@@ -27,7 +27,7 @@ var App = React.createClass({
 
 	// this filters the tweets
 	isTweetFilter: isTweetFilter,
-
+ 
 	// test tweet keys
 	testTweet: data[7],
 	testTags: '#iflyalaska #mtrainer #pacnw #seattle #kray',

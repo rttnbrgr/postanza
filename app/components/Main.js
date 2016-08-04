@@ -2,14 +2,19 @@ import React from 'react';
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 var NewMain = React.createClass({
+	
 	render: function() {
-		return (
+		var path = this.props.location.pathname;
+		var segment = path.split('/')[1] || 'root';
+
+		return (			
 			// <div className="app-wrapper">
 				<ReactCSSTransitionGroup
-					transitionName="appear"
-					transitionEnterTimeout={500}
-					transitionLeaveTimeout={500}>
-					{React.cloneElement(this.props.children, {key: this.props.location.pathname})}					
+					transitionName={segment === 'root' ? 'reversePageSlide' : 'pageSlide' }
+					// transitionName='pageSlide'
+					transitionEnterTimeout={2000}
+					transitionLeaveTimeout={2000}>
+					{React.cloneElement(this.props.children, {key: segment })}					
 				</ReactCSSTransitionGroup>
 			// </div>
 		)
