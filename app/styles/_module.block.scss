@@ -4,9 +4,8 @@
  *
  */
 
+// WHAT FONTS ARE WE USING
 // $roboto-cond [700]
-
-
 
 .block {
 	
@@ -53,43 +52,3 @@
 
 @import 'module.block.photo';
 @import 'module.block.info';
-
-
-// .block:hover {
-// 	.photo__wrap {
-// 		transform: rotateY(180deg);
-// 		box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-// 	}
-// }
-
-.block--photo.photo {
-	// position: relative;
-	// @include size(320px);
-	// @include perspective(1000);
-	
-	// &:hover .photo__wrap {
-	// 	transform: rotateY(180deg);
-	// 	box-shadow: -5px 5px 5px #bbb;
-	// 	box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-	// }
-	
-	// .photo__wrap {
-	// 	@include size(100%);
-	// 	@include transform-style(preserve-3d);
-	// 	transition: all 1s linear;
-	// }
-
-	// .photo__card {
-	// 	position: absolute;
-	// 	@include size(100%);
-	// 	backface-visibility: hidden;
-
-	// 	&.photo__card--back {
-	// 		display: block;
-	// 		transform: rotateY(180deg);
-	// 	}
-	// }
-
-
-}
-

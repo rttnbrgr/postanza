@@ -23,10 +23,9 @@ var Block = React.createClass({
 })
 
 var BlockPhoto = React.createClass({
-	// post: this.props.post,
 	render: function() {
-		// var post2 = this.props.post2.images[0];
-		// console.log(post2);
+		// WHY IS IT CHOCKING ON THIS
+		// var post2 = this.props.post2.images[0];		
 		return (
 			<div className="block--photo photo">
 				<figure className={"photo__wrap " + this.props.bg }>
