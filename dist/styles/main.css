@@ -17,7 +17,7 @@ img {
   max-width: 100%; }
 
 body {
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 100%; }
@@ -78,6 +78,103 @@ body {
   border-bottom: 10px solid transparent;
   border-right: 10px solid blue; }
 
+.view {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex; }
+
+/*
+ *
+ * Home View
+ *
+ */
+.home__view {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  font-size: 100%;
+  color: #0F7BB6;
+  background-color: #fff; }
+
+.home__header svg {
+  width: 80vw;
+  max-width: 20em;
+  max-height: 30vh; }
+
+.home__headline {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  line-height: 1.4;
+  text-align: center;
+  font-size: 2em;
+  margin: 0.5em 0 1.5em; }
+
+.home__btn {
+  display: block;
+  font-size: 1em;
+  text-align: center;
+  background-color: transparent;
+  border: 2px solid #B1D78A;
+  color: #B1D78A;
+  line-height: 1;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-decoration: none;
+  font-family: "Roboto Condensed", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 10px;
+  margin-top: 1em;
+  width: 80vw;
+  max-width: 20em;
+  transition: all .5s ease; }
+  .home__btn:hover {
+    background-color: #B1D78A;
+    color: white; }
+  .home__btn:active, .home__btn:focus {
+    background-color: transparent;
+    color: #B1D78A; }
+  .home__btn.btn--back {
+    position: fixed;
+    bottom: 7.5vh;
+    left: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    color: white;
+    border: none;
+    width: auto;
+    z-index: 3; }
+    .home__btn.btn--back:hover {
+      background-color: rgba(0, 0, 0, 0.2); }
+
+.video {
+  padding-bottom: 56.25%;
+  padding-top: 1.5em;
+  height: 0;
+  position: relative; }
+  .video__view {
+    justify-content: center;
+    align-items: center; }
+  .video__wrap {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto; }
+  .video iframe {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: none; }
+
 /*
  *
  * Tweet View
@@ -100,7 +197,7 @@ body {
   padding: 0 3em 3em;
   padding-bottom: 20vh;
   color: white;
-  font-size: 50%;
+  font-size: 55%;
   padding-left: 1em;
   padding-right: 1em;
   transition: all 0.2s ease-out; }
@@ -112,7 +209,7 @@ body {
       font-size: 100%; } }
   @media (min-width: 75rem) {
     .tweet__view {
-      font-size: 150%; } }
+      font-size: 125%; } }
 
 .tweet__user-wrap {
   display: flex;
@@ -162,80 +259,87 @@ body {
 
 /*
  *
- * Alaska Footer & Logo
+ * Block View
  *
  */
-footer {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 0.5em;
-  display: flex;
-  align-items: center;
-  height: 20vh;
-  color: white;
-  font-size: 150%; }
-  @media (min-width: 75rem) {
-    footer {
-      font-size: 200%; } }
-  @media (min-width: 125rem) {
-    footer {
-      font-size: 300%; } }
-
-.footer__tagline {
-  flex: 5 1 50vw;
-  text-align: right;
-  padding-right: 0.5em; }
-  @media (min-width: 75rem) {
-    .footer__tagline {
-      padding-right: 1em; } }
-
-.footer__logo {
-  flex: 0 1 15vh; }
-
-.tweets-holder {
-  display: block;
-  background-color: #46A8C6;
-  padding: 2em 0; }
-
-.tweet--simple {
-  display: block;
-  width: 50%;
-  font-size: 18px;
-  background-color: #fff;
-  padding: 2rem;
-  margin: 1rem auto;
-  border-radius: 5px; }
-
-.view {
-  height: 100vh;
-  width: 100vw;
-  display: flex; }
-  .view--grid {
-    align-items: center;
-    justify-content: center; }
-
-.grid__view {
-  background-color: #00416A;
-  background-image: -webkit-linear-gradient(#B1D78A 0%, #00416A 100%);
-  background-image: linear-gradient(to   , #00416A 100%); }
-
 .block {
   flex: 1 1 33.33333%;
   display: flex;
   flex-direction: column; }
+  .block__view {
+    background-color: #B1D78A;
+    align-items: flex-start;
+    justify-content: center; }
   .block__wrapper {
-    display: flex; }
-  .block:nth-child(even) {
-    color: blue;
+    display: flex;
+    height: 80vh;
+    align-items: center; }
+  .block--colors {
     flex-direction: column-reverse; }
-  .block--info {
-    flex-grow: 1.1; }
+    .block--colors .info::before {
+      display: none; }
+    .block--colors .info::after {
+      display: block; }
+    .block--colors .photo__src {
+      mix-blend-mode: luminosity; }
+  .block:hover .photo__wrap {
+    transform: rotateY(180deg);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1); }
 
+/*
+ *
+ * Photo Block
+ *
+ */
+.photo {
+  position: relative;
+  height: 320px;
+  width: 320px;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000; }
+  .photo__wrap {
+    height: 100%;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transition: all 1s linear; }
+  .photo__card {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); }
+    .photo__card--back {
+      display: block;
+      transform: rotateY(180deg); }
+
+/*
+ *
+ * Info Block
+ *
+ */
 .info {
   background-color: white;
-  padding: 0.5rem 10%; }
+  padding: 1em 10%;
+  display: flex;
+  align-items: center; }
+  .info__avi {
+    background-color: #B1D78A;
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    overflow: hidden; }
+  .info__username {
+    font-size: 1.5em;
+    color: #B1D78A;
+    font-weight: 900;
+    font-family: "Roboto Condensed", sans-serif;
+    margin-left: 0.3em; }
   .info::before {
     height: 0;
     width: 0;
@@ -251,99 +355,55 @@ footer {
     -ms-transform: translateY(-100%);
     -o-transform: translateY(-100%);
     transform: translateY(-100%); }
-  .info__userblock {
-    display: flex;
-    align-items: center; }
-  .info__avi {
-    height: 3em;
-    width: 3em;
-    border-radius: 50%;
-    overflow: hidden; }
-  .info__username {
-    font-size: 1.5em;
-    color: #B1D78A;
-    font-weight: 700;
-    font-family: "Roboto Condensed", sans-serif;
-    margin-left: 0.3em; }
+  .info::after {
+    height: 0;
+    width: 0;
+    content: "";
+    border-left: 1.5em solid transparent;
+    border-right: 1.5em solid transparent;
+    border-top: 1.5em solid white;
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    transform: translateY(100%);
+    display: none; }
 
 /*
  *
- * Photo Block
+ * Alaska Footer & Logo
  *
  */
-.photo__wrap {
-  background-color: #00416A;
-  background-image: -webkit-linear-gradient(#B1D78A 0%, #00416A 100%);
-  background-image: linear-gradient(to   , #00416A 100%); }
-
-.photo__src {
-  /*
-	 * color
-	 */
-  mix-blend-mode: multiply;
-  mix-blend-mode: hard-light;
-  mix-blend-mode: overlay;
-  mix-blend-mode: screen;
-  mix-blend-mode: luminosity;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-  /*
-	 * Sizings
-	 */
-  height: 100%;
-  width: 100%; }
-
-/*
- *
- * Home View
- *
- */
-.home__view {
-  flex-direction: column;
+footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.5em;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-  font-size: 100%;
-  color: #0F7BB6;
-  background-color: #fff; }
+  height: 20vh; }
 
-.home__header svg {
-  width: 80vw;
-  max-width: 20em;
-  max-height: 30vh; }
-
-.home__headline {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  line-height: 1.4;
-  text-align: center;
-  font-size: 2em;
-  margin: 0.5em 0 1.5em; }
-
-.home__btn {
-  display: block;
-  font-size: 1em;
-  text-align: center;
-  background-color: transparent;
-  border: 2px solid #B1D78A;
-  color: #B1D78A;
-  line-height: 1;
-  padding: 1em;
+.footer__tagline {
+  flex: 5 1 50vw;
+  text-align: right;
+  padding-right: 0.5em;
   font-family: "Roboto Condensed", sans-serif;
-  text-transform: uppercase;
-  font-weight: 500;
-  border-radius: 10px;
-  margin-top: 1em;
-  width: 80vw;
-  max-width: 20em;
-  transition: all .5s ease; }
-  .home__btn:hover {
-    background-color: #B1D78A;
-    color: white; }
-  .home__btn:active, .home__btn:focus {
-    background-color: transparent;
-    color: #B1D78A; }
+  font-weight: 400;
+  font-size: 2em;
+  color: white; }
+  @media (min-width: 75rem) {
+    .footer__tagline {
+      padding-right: 1em; } }
+
+.footer__logo {
+  flex: 0 1 15vh; }
+  .footer__logo svg {
+    width: auto;
+    height: auto; }
 
 /*
  *
@@ -405,13 +465,6 @@ footer {
     transition: all ease 600ms;
     transition: all 600ms ease; }
 
-.view {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0; }
-
 .appear-enter {
   opacity: 0;
   background-color: coral !important;
@@ -428,17 +481,3 @@ footer {
 
 .appear-leave.appear-leave-active {
   opacity: 0.5; }
-
-.test {
-  opacity: 2; }
-
-/* Testing autoprefixer */
-.autoprefixer {
-  display: flex; }
-
-/* Testing cssnext */
-.cssnext {
-  background: color(red opacity(-10%)); }
-
-:root {
-  --ak-green: #B1D78A; }
