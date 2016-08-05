@@ -12,8 +12,8 @@ var NewMain = React.createClass({
 				<ReactCSSTransitionGroup
 					transitionName={segment === 'root' ? 'reversePageSlide' : 'pageSlide' }
 					// transitionName='pageSlide'
-					transitionEnterTimeout={2000}
-					transitionLeaveTimeout={2000}>
+					transitionEnterTimeout={1000}
+					transitionLeaveTimeout={1000}>
 					{React.cloneElement(this.props.children, {key: segment })}					
 				</ReactCSSTransitionGroup>
 			// </div>

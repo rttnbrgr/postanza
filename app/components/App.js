@@ -6,7 +6,7 @@ import { isTweetFilter } from '../util/functions';
 import TweetView from '../containers/TweetView';
 import Tweet from './Tweet';
 import TweetList from './TweetList';
-import GridView from './GridView';
+// import GridView from './GridView';
 import AlaskaFooter from './AlaskaFooter';
 import Home from './Home';
 
