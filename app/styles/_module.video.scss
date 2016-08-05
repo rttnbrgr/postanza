@@ -1,0 +1,24 @@
+.video {
+	
+	&__view {
+		justify-content: center;
+		align-items: center;
+	}
+	
+	&__wrap {
+		max-width: 1280px;
+		width: 100%;
+		margin: 0 auto;
+	}
+	
+	padding-bottom: 56.25%;
+	padding-top: 1.5em;
+	height: 0;
+	position: relative;
+
+	iframe {
+		@include position(absolute, 0);
+		@include size(100%);
+		border: none;		
+	}
+}
