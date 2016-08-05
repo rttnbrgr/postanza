@@ -12,7 +12,7 @@ $header-width: 20em;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		position: relative;
+		// position: relative;
 		z-index: 2;		
 		font-size: 100%;
 
@@ -48,7 +48,10 @@ $header-width: 20em;
 		border: 2px solid $ak-green;
 		color: $ak-green;
 		line-height: 1;
-		padding: 1em;
+		// padding: 1em initial;
+		padding-top: 1em;
+		padding-bottom: 1em;
+		text-decoration: none;
 
 		font-family: $roboto-cond;
 		text-transform: uppercase;
@@ -69,6 +72,22 @@ $header-width: 20em;
 		&:active, &:focus {
 			background-color: transparent;
 			color: $ak-green;
+		}
+		
+
+		&.btn--back {
+		  position: fixed;
+		  bottom: 7.5vh;
+		  left: 1em;
+		  padding-left: 2em;
+		  padding-right: 2em;
+		  color: white;
+		  border: none;
+		  width: auto;
+		  z-index: 3;
+		  &:hover {
+		  	background-color: rgba(0,0,0,0.2);
+		  }		  
 		}
 	}
 }

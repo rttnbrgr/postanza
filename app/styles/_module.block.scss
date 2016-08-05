@@ -1,68 +1,95 @@
-.grid__view {
-	@include ak-gradient-0;	
-}
+/*
+ *
+ * Block View
+ *
+ */
+
+// $roboto-cond [700]
 
 
 
 .block {
 	
+	// the whole view
+	&__view {
+		background-color: $ak-green;
+		align-items: flex-start;
+		justify-content: center;
+	}
+	
 	// this wraps all the grid blocks
 	&__wrapper {
 		display: flex;
-
+		height: 80vh;
+		align-items: center;
 	}
 	
 	// the blocks themselves
 	flex: 1 1 33.33333%;
 	display: flex;
 	flex-direction: column;
-
-	&:nth-child(even) {
-		color: blue;
-		flex-direction: column-reverse;
-	}
-
-	&--info {
-		flex-grow: 1.1;
-	}
-
-}
-
-$block-avi-size: 3em;
-$block-arrow-size: $block-avi-size/2;
-$arrow-size: 1em;
-
-.info {
-	background-color: white;
-	// background-color: $ak-blue1;
-	padding: 0.5rem 10%;
-
-	&::before {
-		@include arrow-up($size: $block-arrow-size, $color: white);
-
-		@include position(absolute, 0 null null 10%);
-		@include transform(translateY(-100%));
-	}
 	
-	&__userblock {
-		display: flex;
-		align-items: center;
+	// the alternate w/ color
+	&--colors {
+		flex-direction: column-reverse;
+		
+		.info {
+			&::before { display: none; }
+			&::after { display: block; }
+		}		
+
+		.photo__src {
+			mix-blend-mode: luminosity;
+		}
 	}
 
-	&__avi {
-		@include size(3em);
-		border-radius: 50%;
-		overflow: hidden;
-	}
-
-	&__username {
-		font-size: 1.5em;
-		color: $ak-green;
-		font-weight: 700;
-		font-family: $roboto-cond;
-		margin-left: 0.3em;
+	&:hover {
+		.photo__wrap {
+			transform: rotateY(180deg);
+			box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+		}
 	}
 }
-
 
 @import 'module.block.photo';
+@import 'module.block.info';
+
+
+// .block:hover {
+// 	.photo__wrap {
+// 		transform: rotateY(180deg);
+// 		box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+// 	}
+// }
+
+.block--photo.photo {
+	// position: relative;
+	// @include size(320px);
+	// @include perspective(1000);
+	
+	// &:hover .photo__wrap {
+	// 	transform: rotateY(180deg);
+	// 	box-shadow: -5px 5px 5px #bbb;
+	// 	box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+	// }
+	
+	// .photo__wrap {
+	// 	@include size(100%);
+	// 	@include transform-style(preserve-3d);
+	// 	transition: all 1s linear;
+	// }
+
+	// .photo__card {
+	// 	position: absolute;
+	// 	@include size(100%);
+	// 	backface-visibility: hidden;
+
+	// 	&.photo__card--back {
+	// 		display: block;
+	// 		transform: rotateY(180deg);
+	// 	}
+	// }
+
+
+}
+

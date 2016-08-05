@@ -11,6 +11,14 @@
 	border-bottom: $size solid $color;	
 }
 
+@mixin arrow-down($size: 1em, $color: black) {
+  @include size(0);
+  content: "";
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+  border-top: $size solid $color;  
+}
+
 
 
 .arrow-up {

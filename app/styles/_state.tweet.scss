@@ -16,12 +16,12 @@ $tweet-height: 40vh;
 		height: 0;
 		transform: translate3d(0, -$tweet-height/4, 0);
 		opacity: 0;
-		// dont transition the height!!
 		transition: 
 			transform 1s linear,
 			opacity 0.2s ease-out;
 	}
 
+	// dont transition the height!!
 	&.active {
 		order: 1;
 		height: $tweet-height;

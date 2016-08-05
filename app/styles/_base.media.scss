@@ -1,0 +1,23 @@
+//
+// Sizes && BreakPoints
+//
+$bp-phablet: 30rem; // 480px
+$bp-tablet: 48rem; // 768px
+$bp-desktop: 75rem; // 1000px
+$bp-display: 125rem; 	// 2000px
+
+@mixin bp-phablet {
+	@media (min-width: $bp-phablet) { @content; }
+}
+
+@mixin bp-tablet {
+	@media (min-width: $bp-tablet) { @content; }
+}
+
+@mixin bp-desktop {
+	@media (min-width: $bp-desktop) { @content; }
+}
+
+@mixin bp-display {
+	@media (min-width: $bp-display) { @content; }
+}

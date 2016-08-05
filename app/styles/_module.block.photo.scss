@@ -4,30 +4,36 @@
  *
  */
 
-.photo__wrap {
-	@include ak-gradient-0;	
-}
+.photo {
 
-.photo__src {
+	position: relative;
+	@include size(320px);
+	@include perspective(1000);
 	
-	/*
-	 * color
-	 */
+	// set this gradient by random in react
+	&__wrap {
+		@include size(100%);
+		@include transform-style(preserve-3d);
+		transition: all 1s linear;
+	}
 
-	mix-blend-mode: multiply;
-	mix-blend-mode: hard-light;
-	mix-blend-mode: overlay;
-	mix-blend-mode: screen;
-	mix-blend-mode: luminosity;
-	// @include filter: greyscale(10%);
-	@include filter(grayscale(100%));
-	
+	&__card {
+		position: absolute;
+		@include size(100%);
+		backface-visibility: hidden;
+		
+		// COLOR OPTIONS
+		// mix-blend-mode: multiply;
+		// mix-blend-mode: hard-light;
+		// mix-blend-mode: overlay;
+		// mix-blend-mode: screen;
+		// mix-blend-mode: luminosity;
+		// THESE BREAK THE ANIMATION
+		@include filter(grayscale(100%));
 
-	/*
-	 * Sizings
-	 */
-
-	// @include position(absolute, 0);
-	@include size(100%);
-	// object-fit: cover;
+		&--back {
+			display: block;
+			transform: rotateY(180deg);
+		}
+	}
 }

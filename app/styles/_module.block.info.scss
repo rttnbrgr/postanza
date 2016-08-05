@@ -4,4 +4,42 @@
  *
  */
 
- 
+$block-avi-size: 3em;
+$block-arrow-size: $block-avi-size/2;
+$block-info-padding: 10%;
+
+.info {
+	background-color: white;		
+	padding: 1em $block-info-padding;
+	display: flex;
+	align-items: center;	
+
+	&__avi {
+		background-color: $ak-green;
+		@include size(3em);
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	&__username {
+		font-size: 1.5em;
+		color: $ak-green;
+		font-weight: 900;
+		font-family: $roboto-cond;
+		margin-left: 0.3em;
+	}	
+	
+	// the arrows
+	&::before {
+		@include arrow-up($size: $block-arrow-size, $color: white);
+		@include position(absolute, 0 null null $block-info-padding);
+		@include transform(translateY(-100%));
+	}
+	// apply these appropriately
+	&::after {
+		@include arrow-down($size: $block-arrow-size, $color: white);
+		@include position(absolute, null null 0 $block-info-padding);
+		@include transform(translateY(100%));	
+		display: none;
+	}
+}

@@ -7,62 +7,43 @@
 @import 'base.mixins';
 
 // Modules
-@import 'module.tweet';
-@import 'module.footer';
-@import 'module.shame';
 @import 'module.view';
-@import 'module.block';
+@import 'module.btn';
 @import 'module.home';
+@import 'module.video';
+@import 'module.tweet';
+@import 'module.block';
+@import 'module.footer';
 
 // State
 @import 'state.tweet';
-
-
 @import 'state.transitions';
 
-.view {
-	@include position(absolute, 0);
-}
+// edit google fonts
+// record video
+// write note
 
+// .video {
+	
+// 	&__view {
+// 		justify-content: center;
+// 		align-items: center;
+// 	}
+	
+// 	&__wrap {
+// 		max-width: 1280px;
+// 		width: 100%;
+// 		margin: 0 auto;
+// 	}
+	
+// 	padding-bottom: 56.25%;
+// 	padding-top: 1.5em;
+// 	height: 0;
+// 	position: relative;
 
-.appear-enter {
-  // transition-duration: .7s;
-  // transition-property: opacity;
-  // transition-timing-function: ease-out;
-  opacity: 0;
-  background-color: coral!important;
-  transition: all 1s ease;
-}
-
-.appear-enter.appear-enter-active {
-  opacity: 1;
-  background-color: purple!important;
-}
-
-.appear-leave {
-  opacity: 0;
-  background-color: yellow;
-  transition: all .5s ease;
-}
-
-.appear-leave.appear-leave-active {
-	opacity: .5,
-}
-
-.test { opacity: 2; }
-
-
-
-/* Testing autoprefixer */
-.autoprefixer {
-  display: flex;
-}
- 
-/* Testing cssnext */
-.cssnext {
-  background: color(red alpha(-10%));
-}
-
-:root {
-  --ak-green: #B1D78A;
-}
+// 	iframe {
+// 		@include position(absolute, 0);
+// 		@include size(100%);
+// 		border: none;		
+// 	}
+// }

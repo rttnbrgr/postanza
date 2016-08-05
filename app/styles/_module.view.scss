@@ -1,14 +1,6 @@
 // top level
 .view {
 	@include size(100vw 100vh);
-	display: flex;	
-	
-	// for the grid
-	&--grid {
-		align-items: center;
-		justify-content: center;
-	}
-	
-	// @include ak-gradient-4;
-	// background-color: pink;
+	@include position(absolute, 0);
+	display: flex;
 }
