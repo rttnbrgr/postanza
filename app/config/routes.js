@@ -4,7 +4,8 @@ import ReactRouter, { Router, Route, IndexRoute, hashHistory } from 'react-route
 import Main from '../components/Main';
 import Home from '../components/Home';
 import TweetView from '../containers/TweetView';
-import GridView from '../components/GridView';
+import BlockView from '../containers/BlockView';
+import Video from '../components/Video';
 import SingleTweet from '../components/SingleTweet';
 
 var routes = (
@@ -12,8 +13,8 @@ var routes = (
 		<Route path="/" component={Main}>
 			<IndexRoute component={Home} />
 			<Route path='/tweetView' component={TweetView} />
-			<Route path='/gridView' component={GridView} />
-			<Route path='/singletweet' component={SingleTweet} />
+			<Route path='/blockview' component={BlockView} />
+			<Route path='/thoughts' component={Video} />
 		</Route>
 	</Router>
 )

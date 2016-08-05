@@ -14,8 +14,8 @@ var Home = React.createClass({
 				
 				<div className="home__actions">
 					<Link to="/tweetview" className="home__btn">Tweet View</Link>
-					<Link to="/gridview" className="home__btn">Grid View</Link>
-					<Link to="/singletweet" className="home__btn">Single Tweet</Link>				
+					<Link to="/blockview" className="home__btn">Block View</Link>
+					<Link to="/thoughts" className="home__btn home__btn--clean">Some Thoughts</Link>
 				</div>
 			</div>
 		)
