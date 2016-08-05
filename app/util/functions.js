@@ -53,11 +53,24 @@ function tweetsWithPhotos(postanoData) {
 // tweetsWithPhotos(data);
 
 function isTweetFilter(obj) {
-	if( obj.source_type === "twitter" ) {
-		return true;
-	} else {
-		return false;
-	}
+	return obj.source_type === "twitter"
 }
 
-export { getPhotos, countThePostTypes, tweetsWithPhotos, isTweetFilter };
+function hasSquarePhoto(obj) {
+	return obj.source_type === 'instagram'
+	// vines aren't loading right
+	// return obj.source_type === 'instagram' || obj.source_type === 'vine'		
+}
+
+function isNotNegative(obj) {
+	return obj.sentiment.type !== 'NEGATIVE'		
+}
+
+function randomBG() {
+	var bgLength = 5;
+	var randomBG = (Math.floor(Math.random() * bgLength));
+	var bgClass = 'ak-gradient-' + randomBG;
+	return bgClass		
+}
+
+export { getPhotos, countThePostTypes, tweetsWithPhotos, isTweetFilter, hasSquarePhoto, isNotNegative, randomBG };
