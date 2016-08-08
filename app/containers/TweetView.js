@@ -36,15 +36,19 @@ var TweetView = React.createClass({
 		}
 	},
 
+
+
 	componentDidMount: function() {
-		var interval = setInterval(function() {
+		this.loadInterval = setInterval(function() {
 			this.changeTweet();			
 		}.bind(this), this.state.interval);
 	},
 
 	componentWillUnmount: function() {
-		console.log('unmount the interval! d:3');		
-		// unmount the interval
+		console.log('unmount the interval!');		
+		// unmount the interval ?
+		this.loadInterval && clearInterval(this.loadInterval);
+		this.loadInterval = false;
 	},	
 
 	changeTweet: function() {
